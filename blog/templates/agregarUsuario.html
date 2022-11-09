@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        
+        <title>Interview</title>
+        
+        <style>
+            body {background: #f4f4f4;}
+        </style>
+
+    </head>
+
+    <body>
+        <div class="container">
+            <center>
+            <h1>Registrar un usuario</h1>
+            <br>
+            {%if registrado%}
+
+                Tu usuario fue registrado correctamente!
+
+            {%else%}
+                <form action="" method=POST>
+
+                    {% csrf_token %}
+
+                    {{form.as_p}}
+
+                    <input type="submit" value="Registrar">
+
+                </form>
+            {%endif%}
+            </center>
+        </div>
+        <br>
+        <div class="container">
+            <center>
+            <table border='1'>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                </tr>
+                {% for x in myusers %}
+                <tr>
+                    <td>{{ x.nombre }}</td>
+                    <td>{{ x.apellido }}</td>
+                    <td>{{ x.correo }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            </center>
+        </div>
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    </body>
+</html>

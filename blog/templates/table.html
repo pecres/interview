@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interview</title>
+</head>
+<body>
+<table border='1'>
+    <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+    </tr>
+    {% for x in myusers %}
+    <tr>
+        <td>{{ x.nombre }}</td>
+        <td>{{ x.apellido }}</td>
+        <td>{{ x.correo }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>                  

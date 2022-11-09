@@ -2,7 +2,6 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
-
 class Usuario(models.Model):
 
     nombre = models.CharField(max_length=200)

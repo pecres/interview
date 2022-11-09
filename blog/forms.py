@@ -1,7 +1,19 @@
 from django import forms
+from django.forms import ModelForm
+from .models import Usuario
 
-class UserForm(forms.Form):
-
-    nombre = forms.CharField(max_length=200, min_length=3, required=True)
-    apellido = forms.CharField(max_length=200, min_length=3, required=True, widget=forms.Textarea(attrs={'row':5,'cols':3}))
-    correo = forms.CharField(max_length=200)
+#Creo un formulario para los usuarios
+class UserForm(ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ('nombre','apellido','correo')
+        labels = {
+            'nombre': '',
+            'apellido': '',
+            'correo': '',
+        }
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Nombre'}),
+            'apellido': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Apellido'}),
+            'correo':forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Correo'}),
+        }
