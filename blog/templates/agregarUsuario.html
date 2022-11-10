@@ -15,12 +15,23 @@
         </style>
 
     </head>
+    <style> 
+        form {
+            width: 400px;
+            padding: 30px;
+            margin: auto;
+            border-radius: 4px;
+            font-family: 'calibri';
+            color: white;
 
+        }
+    </style>
     <body>
-        <div class="container">
+        <div class="container-sm">
             <center>
+                <br>
             <h1>Registrar un usuario</h1>
-            <br>
+
             {%if registrado%}
 
                 Tu usuario fue registrado correctamente!
@@ -34,8 +45,7 @@
                     {{form.as_p}}
                     
                     <a class="btn btn-primary" href="table.html" role="button">Ver usuarios registrados</a>
-                    <input type="submit" value="Registrar" class="btn btn-primary">
-                    
+                    <input type="submit" value="Registrar" class="btn btn-success">
                 </form>
             {%endif%}
             </center>
